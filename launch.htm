@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PWA Redirect</title>
+
+  <!-- Manifest for PWA -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="apple-touch-icon" href="icon.png" />
+
+  <script>
+    // Redirect as soon as possible
+    window.location.replace("https://example.com");
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>

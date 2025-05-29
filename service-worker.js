@@ -13,8 +13,16 @@ self.addEventListener('install', event => {
 
 self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request).then(response =>
-      response || fetch(event.request)
-    )
+    caches.match(event.request).then(response => {
+      if (response) {
+        return response;
+      }
+      // Clone the request to avoid issues with streaming
+      const fetchRequest = event.request.clone();
+
+      return fetch(fetchRequest, { credentials: 'omit' }).then(networkResponse => {
+        return networkResponse;
+      });
+    })
   );
 });
